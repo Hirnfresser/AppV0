@@ -1,11 +1,5 @@
 import streamlit as st
 
-st.title("Retikulozytenindex-Rechner")
-
-st.write("Diese Seite ist eine Unterseite der Startseite.")
-
-import streamlit as st
-
 def calculate_reticulocyte_index(reticulocytes, hematocrit, normal_hematocrit=45):
     """
     Berechnet den Retikulozytenindex.

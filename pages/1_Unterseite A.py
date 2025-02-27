@@ -22,9 +22,9 @@ hematocrit = st.number_input("Hämatokrit-Wert (%):", min_value=0.0, max_value=1
 if st.button("Berechnen"):
     ret_index = calculate_reticulocyte_index(reticulocytes, hematocrit)
     if ret_index == 1.0:
-        st.success(f"Der berechnete Retikulozytenproduktionsindex beträgt: {ret_index:.2f}\n\nNormalfall", icon="✅")
+        st.success(f"Der berechnete Retikulozytenproduktionsindex beträgt: {ret_index:.2f}\n\nDies entspricht dem Normalfall", icon="✅")
     else:
-        st.success(f"Der berechnete Retikulozytenproduktionsindex beträgt: {ret_index:.2f}")
+        st.info(f"Der berechnete Retikulozytenproduktionsindex beträgt: {ret_index:.2f}")
 
 st.write("Hinweis: Ein Wert über 2 zeigt eine gesteigerte Erythropoese an, während ein Wert unter 2 eine erythropoetische Insuffizienz anzeigt.")
 

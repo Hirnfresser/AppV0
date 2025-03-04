@@ -15,11 +15,13 @@ st.title("Retikulozytenproduktionsindex-Rechner")
 
 st.write("Dieser Rechner bestimmt den Retikulozytenproduktionsindex zur Bewertung der Erythropoese-Aktivität.")
 
-# Benutzereingaben
-reticulocytes = st.number_input("Retikulozytenzahl (%):", min_value=0.0, max_value=100.0, value=1.0, step=0.1)
-hematocrit = st.number_input("Hämatokrit-Wert (%):", min_value=0.0, max_value=100.0, value=40.0, step=0.1)
+# Formular für Benutzereingaben
+with st.form(key='input_form'):
+    reticulocytes = st.number_input("Retikulozytenzahl (%):", min_value=0.0, max_value=100.0, value=1.0, step=0.1)
+    hematocrit = st.number_input("Hämatokrit-Wert (%):", min_value=0.0, max_value=100.0, value=40.0, step=0.1)
+    submit_button = st.form_submit_button(label="Berechnen")
 
-if st.button("Berechnen"):
+if submit_button:
     ret_index = calculate_reticulocyte_index(reticulocytes, hematocrit)
     if ret_index == 1.0:
         st.success(f"Der berechnete Retikulozytenproduktionsindex beträgt: {ret_index:.2f}\n\nDies entspricht dem Normalfall", icon="✅")

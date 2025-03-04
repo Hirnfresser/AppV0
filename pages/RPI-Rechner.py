@@ -28,5 +28,6 @@ if submit_button:
     else:
         st.info(f"Der berechnete Retikulozytenproduktionsindex beträgt: {ret_index:.2f}")
 
-st.write("Hinweis: Ein Wert über 2 zeigt eine gesteigerte Erythropoese an, während ein Wert unter 2 eine erythropoetische Insuffizienz anzeigt.")
+st.write("Hinweis: Bitte beachten Sie, dass dieser Rechner nur eine grobe Schätzung darstellt und keine medizinische Beratung ersetzt")
 
+st.feedback("stars")

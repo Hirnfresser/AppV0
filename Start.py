@@ -1,7 +1,8 @@
 import streamlit as st
 import pandas as pd
 
-st.title("Unsere erste Streamlit App")
+st.title("Retikulozytenproduktionsindex-Rechner")
+st.header("Berechnung des Retikulozytenproduktionsindex zur Bewertung der Erythropoese-Aktivität")
 
 # !! WICHTIG: Eure Emails müssen in der App erscheinen!!
 

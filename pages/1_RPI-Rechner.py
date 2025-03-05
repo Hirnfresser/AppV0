@@ -28,7 +28,7 @@ if submit_button:
     else:
         st.info(f"Der berechnete Retikulozytenproduktionsindex beträgt: {ret_index:.2f}")
 
-st.write("Hinweis: Bitte beachten Sie, dass dieser Rechner nur eine grobe Schätzung darstellt und keine medizinische Beratung ersetzt!")
+st.write("Hinweis: Bitte beachten Sie, dass die Normwerte abweichen können und der Rechner keine medizinische Beratung ersetzt!")
 
 
 st.feedback("stars")
@@ -44,3 +44,6 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
+if st.button('Startseite'):
+    st.switch_page('Start.py')

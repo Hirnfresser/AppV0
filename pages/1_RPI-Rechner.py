@@ -11,7 +11,7 @@ def calculate_reticulocyte_index(reticulocytes, hematocrit, normal_hematocrit=45
     return (reticulocytes * hematocrit / normal_hematocrit)
 
 # Streamlit App
-st.title("Retikulozytenproduktionsindex-Rechner")
+st.title("🩸Retikulozytenproduktionsindex-Rechner")
 
 st.write("Dieser Rechner bestimmt den Retikulozytenproduktionsindex zur Bewertung der Erythropoese-Aktivität.")
 

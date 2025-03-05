@@ -30,7 +30,19 @@ if submit_button:
 
 st.write("Hinweis: Bitte beachten Sie, dass dieser Rechner nur eine grobe Schätzung darstellt und keine medizinische Beratung ersetzt")
 
-st.feedback("stars")
+st.markdown(
+    """
+    <style>
+    [data-testid="stFeedbackStars"] svg {
+        filter: hue-rotate(190deg) saturate(3);
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# Streamlit Feedback Component
+st.feedback("Wie hilfreich ist dieser Rechner für dich?", key="feedback_stars")
 
 st.markdown(
     """

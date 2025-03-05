@@ -31,3 +31,15 @@ if submit_button:
 st.write("Hinweis: Bitte beachten Sie, dass dieser Rechner nur eine grobe Schätzung darstellt und keine medizinische Beratung ersetzt")
 
 st.feedback("stars")
+
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background: linear-gradient(to bottom, #FFFFFF, #FFCCCC);
+        background-attachment: fixed;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)

@@ -1,8 +1,9 @@
 import streamlit as st
 import pandas as pd
 
-st.title("Einführung App-Entwicklung mit Streamlit")
+st.title("Retikulozytenproduktionsindex-Rechner")
 
+st.markdown("Die RPI-Rechner-App ermöglicht die schnelle und präzise Berechnung des Retikulozytenproduktionsindex (RPI) zur Beurteilung der Knochenmarkaktivität. Durch die Eingabe von Hämatokrit und Retikulozytenwert erhalten medizinische Fachkräfte eine Einschätzung der erythropoetischen Aktivität.")
 # !! WICHTIG: Eure Emails müssen in der App erscheinen!!
 
 # Streamlit über den Text unten direkt in die App - cool

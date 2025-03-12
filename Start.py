@@ -1,6 +1,19 @@
 import streamlit as st
 import pandas as pd
 
+from utils.data_manager import DataManager #Anleitung Nummer 9 im moodle
+
+# initialize the data manager
+data_manager = DataManager(fs_protocol='webdav', fs_root_folder="BMLD_App_RPI_Rechner")  # switch drive 
+
+# load the data from the persistent storage into the session state
+data_manager.load_app_data(
+    session_state_key='data_df', 
+    file_name='data.csv', 
+    initial_value = pd.DataFrame(), 
+    parse_dates = ['timestamp']
+    )
+
 st.title("Retikulozytenproduktionsindex-Rechner")
 
 st.markdown("Die RPI-Rechner-App ermöglicht die schnelle und präzise Berechnung des Retikulozytenproduktionsindex (RPI) zur Beurteilung der Knochenmarkaktivität. Durch die Eingabe von Hämatokrit und Retikulozytenwert erhalten medizinische Fachkräfte eine Einschätzung der erythropoetischen Aktivität.")

@@ -30,6 +30,9 @@ if submit_button:
 
 st.write("Hinweis: Bitte beachten Sie, dass die Normwerte abweichen können und der Rechner keine medizinische Beratung ersetzt!")
 
+# update data in session state and save to persistent storage
+DataManager().append_record(session_state_key='data_df', record_dict=result)
+
 
 st.feedback("stars")
 

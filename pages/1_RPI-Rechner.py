@@ -3,6 +3,9 @@ from functions.rpi_rechner import calculate_reticulocyte_index
 from utils.data_manager import DataManager
 
 
+# if 'data_df' not in st.session_state:
+st.session_state['data_df'] = []  # Initialize session state if not exists
+
 # Streamlit App
 st.title("🩸Retikulozytenproduktionsindex-Rechner")
 
@@ -20,22 +23,15 @@ if submit_button:
         st.success(f"Der berechnete Retikulozytenproduktionsindex beträgt: {result:.2f}\n\nDies entspricht dem Normalfall", icon="✅")
     else:
         st.info(f"Der berechnete Retikulozytenproduktionsindex beträgt: {result:.2f}")
-
-# Ensure result is stored as a dictionary before appending
-    record_dict = {
-        'reticulocytes': reticulocytes,
-        'hematocrit': hematocrit,
-        'ret_index': result
-    }
-
-    # Update data in session state and save to persistent storage
-    if 'data_df' not in st.session_state:
-        st.session_state['data_df'] = []  # Initialize session state if not exists
     
-    # Append to session state data
-    st.session_state['data_df'].append(record_dict)
+    result_dict = {
+    'reticulocytes': reticulocytes,
+    'hematocrit': hematocrit,
+    'ret_index': result  # Assuming 'result' is the computed reticulocyte index
+}   
+    # update data in session state and save to persistent storage
+    DataManager().append_record(session_state_key='data_df', record_dict=result_dict)  
 
-st.write("Gespeicherte Daten:", st.session_state['data_df'])  # Debugging output
 
 
 st.write("Hinweis: Bitte beachten Sie, dass die Normwerte abweichen können und der Rechner keine medizinische Beratung ersetzt!")

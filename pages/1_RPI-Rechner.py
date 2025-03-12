@@ -1,14 +1,7 @@
 import streamlit as st
+from functions.rpi_rechner import calculate_reticulocyte_index
+from utils.data_manager import DataManager
 
-def calculate_reticulocyte_index(reticulocytes, hematocrit, normal_hematocrit=45):
-    """
-    Berechnet den Retikulozytenindex.
-    :param reticulocytes: Retikulozytenzahl in %
-    :param hematocrit: Patientenspezifischer Hämatokrit-Wert in %
-    :param normal_hematocrit: Normaler Hämatokrit-Wert (Standard: 45%)
-    :return: Retikulozytenindex
-    """
-    return (reticulocytes * hematocrit / normal_hematocrit)
 
 # Streamlit App
 st.title("🩸Retikulozytenproduktionsindex-Rechner")
@@ -22,16 +15,30 @@ with st.form(key='input_form'):
     submit_button = st.form_submit_button(label="Berechnen")
 
 if submit_button:
-    ret_index = calculate_reticulocyte_index(reticulocytes, hematocrit)
-    if ret_index == 1.0:
-        st.success(f"Der berechnete Retikulozytenproduktionsindex beträgt: {ret_index:.2f}\n\nDies entspricht dem Normalfall", icon="✅")
+    result = calculate_reticulocyte_index(reticulocytes, hematocrit)
+    if result == 1.0:
+        st.success(f"Der berechnete Retikulozytenproduktionsindex beträgt: {result:.2f}\n\nDies entspricht dem Normalfall", icon="✅")
     else:
-        st.info(f"Der berechnete Retikulozytenproduktionsindex beträgt: {ret_index:.2f}")
+        st.info(f"Der berechnete Retikulozytenproduktionsindex beträgt: {result:.2f}")
+
+# Ensure result is stored as a dictionary before appending
+    record_dict = {
+        'reticulocytes': reticulocytes,
+        'hematocrit': hematocrit,
+        'ret_index': result
+    }
+
+    # Update data in session state and save to persistent storage
+    if 'data_df' not in st.session_state:
+        st.session_state['data_df'] = []  # Initialize session state if not exists
+    
+    # Append to session state data
+    st.session_state['data_df'].append(record_dict)
+
+st.write("Gespeicherte Daten:", st.session_state['data_df'])  # Debugging output
+
 
 st.write("Hinweis: Bitte beachten Sie, dass die Normwerte abweichen können und der Rechner keine medizinische Beratung ersetzt!")
-
-# update data in session state and save to persistent storage
-DataManager().append_record(session_state_key='data_df', record_dict=result)
 
 
 st.feedback("stars")

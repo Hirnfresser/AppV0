@@ -1,5 +1,6 @@
 import streamlit as st
 from functions.rpi_rechner import calculate_reticulocyte_index
+from utils.data_handler import DataHandler
 from utils.data_manager import DataManager
 
 

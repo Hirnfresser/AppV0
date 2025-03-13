@@ -10,8 +10,7 @@ data_manager = DataManager(fs_protocol='webdav', fs_root_folder="Institution/BML
 data_manager.load_app_data(
     session_state_key='data_df', 
     file_name='data.csv', 
-    initial_value = pd.DataFrame(), 
-    parse_dates = ['timestamp']
+    initial_value = pd.DataFrame()
     )
 
 st.title("Retikulozytenproduktionsindex-Rechner")

@@ -20,7 +20,8 @@ if submit_button:
         st.success(f"Der berechnete Retikulozytenproduktionsindex beträgt: {result:.2f}\n\nDies entspricht dem Normalfall", icon="✅")
     else:
         st.info(f"Der berechnete Retikulozytenproduktionsindex beträgt: {result:.2f}")
-    
+        
+
     result_dict = {
     'reticulocytes': reticulocytes,
     'hematocrit': hematocrit,

@@ -1,11 +1,7 @@
 import streamlit as st
 from functions.rpi_rechner import calculate_reticulocyte_index
-from utils.data_handler import DataHandler
 from utils.data_manager import DataManager
 
-
-# if 'data_df' not in st.session_state:
-st.session_state['data_df'] = []  # Initialize session state if not exists
 
 # Streamlit App
 st.title("🩸Retikulozytenproduktionsindex-Rechner")

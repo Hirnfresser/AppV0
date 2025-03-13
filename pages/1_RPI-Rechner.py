@@ -1,3 +1,8 @@
+# ====== Start Login Block ======
+from utils.login_manager import LoginManager
+LoginManager().go_to_login('Start.py') 
+# ====== End Login Block ======
+
 import streamlit as st
 from functions.rpi_rechner import calculate_reticulocyte_index
 from utils.data_manager import DataManager
@@ -15,20 +20,10 @@ with st.form(key='input_form'):
 
 if submit_button:
     result = calculate_reticulocyte_index(reticulocytes, hematocrit)
-    if result == 1.0:
-        st.success(f"Der berechnete Retikulozytenproduktionsindex beträgt: {result:.2f}\n\nDies entspricht dem Normalfall", icon="✅")
-    else:
-        st.info(f"Der berechnete Retikulozytenproduktionsindex beträgt: {result:.2f}")
-        
 
-    result_dict = {
-    'reticulocytes': reticulocytes,
-    'hematocrit': hematocrit,
-    'ret_index': result  # Assuming 'result' is the computed reticulocyte index
-}   
-    # update data in session state and save to persistent storage
-    DataManager().append_record(session_state_key='data_df', record_dict=result_dict)  
-
+ # --- Save RPI data ---
+    from utils.data_manager import DataManager
+    DataManager().append_record(session_state_key='data_df', record_dict=result)  # update data in session state and storage
 
 
 st.write("Hinweis: Bitte beachten Sie, dass die Normwerte abweichen können und der Rechner keine medizinische Beratung ersetzt!")

@@ -2,9 +2,6 @@ import streamlit as st
 from functions.rpi_rechner import calculate_reticulocyte_index
 from utils.data_manager import DataManager
 
-login_manager = LoginManager(data_manager) # initialize login manager
-login_manager.login_register()  # opens login page
-
 # Streamlit App
 st.title("🩸Retikulozytenproduktionsindex-Rechner")
 

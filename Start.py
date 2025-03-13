@@ -13,11 +13,6 @@ data_manager.load_app_data(
     initial_value = pd.DataFrame()
     )
 
-# === Initialize the login manager ===
-from utils.login_manager import LoginManager
-
-login_manager = LoginManager(data_manager) # initialize login manager
-login_manager.login_register()  # opens login page
 
 
 st.title("Retikulozytenproduktionsindex-Rechner")

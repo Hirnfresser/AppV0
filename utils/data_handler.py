@@ -2,11 +2,6 @@ import json, yaml, posixpath
 import pandas as pd
 from io import StringIO
 
-from utils.data_manager import DataManager
-
-login_manager = LoginManager(data_manager) # initialize login manager
-login_manager.login_register()  # opens login page
-
 class DataHandler:
     def __init__(self, filesystem, root_path):
         """
@@ -160,4 +155,3 @@ class DataHandler:
         else:
             raise ValueError(f"Unsupported content type for extension {ext}")
         
-         DataManager().append_record(...)

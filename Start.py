@@ -14,6 +14,13 @@ data_manager.load_app_data(
     parse_dates = ['timestamp']
     )
 
+# === Initialize the login manager ===
+from utils.login_manager import LoginManager
+
+login_manager = LoginManager(data_manager) # initialize login manager
+login_manager.login_register()  # opens login page
+
+
 st.title("Retikulozytenproduktionsindex-Rechner")
 
 st.markdown("Die RPI-Rechner-App ermöglicht die schnelle und präzise Berechnung des Retikulozytenproduktionsindex (RPI) zur Beurteilung der Knochenmarkaktivität. Durch die Eingabe von Hämatokrit und Retikulozytenwert erhalten medizinische Fachkräfte eine Einschätzung der erythropoetischen Aktivität.")

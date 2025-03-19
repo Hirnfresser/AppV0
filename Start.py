@@ -6,7 +6,7 @@ from utils.login_manager import LoginManager
 data_manager = DataManager(fs_protocol='webdav', fs_root_folder="Institution/BMLD_App_RPI_Rechner")  # switch drive 
 
 # load the data from the persistent storage into the session state
-data_manager.load_app_data(
+data_manager.load_user_data(
     session_state_key='data_df', 
     file_name='data.csv', 
     initial_value = pd.DataFrame(),

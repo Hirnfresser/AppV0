@@ -43,5 +43,16 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-if st.button('Startseite'):
-    st.switch_page('Start.py')
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    if st.button('Zur Startseite'):
+        st.switch_page('Start.py')
+
+with col2:
+    if st.button('Zur Daten-Tabelle'):
+        st.switch_page('pages/2_RPI-Daten.py')
+
+with col3:
+    if st.button('Zur Grafik'):
+        st.switch_page('pages/3_RPI-Statistik.py')

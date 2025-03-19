@@ -5,10 +5,6 @@ from utils.login_manager import LoginManager
 # initialize the data manager
 data_manager = DataManager(fs_protocol='webdav', fs_root_folder="Institution/BMLD_App_RPI_Rechner")  # switch drive 
 
-# initialize the login manager
-login_manager = LoginManager(data_manager)
-login_manager.login_register()  # open login/register page
-
 # load the data from the persistent storage into the session state
 data_manager.load_app_data(
     session_state_key='data_df', 
@@ -17,6 +13,9 @@ data_manager.load_app_data(
     parse_dates = ['timestamp']
     )
 
+# initialize the login manager
+login_manager = LoginManager(data_manager)
+login_manager.login_register()  # open login/register page
 
 import streamlit as st
 

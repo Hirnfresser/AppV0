@@ -19,3 +19,15 @@ data_df = data_df.sort_values('timestamp', ascending=False)
 
 # Display table
 st.dataframe(data_df)
+
+col1, col2, col3 = st.columns(3)
+
+with col1: 
+    if st.button('Zur Startseite'):
+        st.switch_page('Start.py')
+with col2:
+    if st.button('Zum Rechner'):
+        st.switch_page('pages/1_RPI-Rechner.py')
+with col3:
+    if st.button('Zu der Grafik'):
+        st.switch_page('pages/3_RPI-Statistik.py')

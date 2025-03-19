@@ -28,3 +28,15 @@ st.caption('Retikulozyten über Zeit (%)')
 st.line_chart(data=data_df.set_index('timestamp')['ret_index'],
                 use_container_width=True)
 st.caption('RPI über Zeit')
+
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    if st.button('Zur Startseite'):
+        st.switch_page('Start.py')
+with col2:
+    if st.button('Zum RPI-Rechner'):
+        st.switch_page('pages/1_RPI-Rechner.py')
+with col3:
+    if st.button('Zur Daten-Tabelle'):
+        st.switch_page('pages/2_RPI-Daten.py')

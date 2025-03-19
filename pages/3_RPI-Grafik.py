@@ -12,6 +12,8 @@ st.title('RPI Verlauf')
 data_df = st.session_state['data_df']
 if data_df.empty:
     st.info('Keine RPI Daten vorhanden. Berechnen Sie Ihren RPI auf der Rechner_Unterseite.')
+    if st.button('Zum Rechner'):
+        st.switch_page('pages/1_RPI-Rechner.py')
     st.stop()
 
 # hematocrit over time

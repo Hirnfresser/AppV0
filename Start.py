@@ -29,5 +29,15 @@ st.markdown("Die RPI-Rechner-App ermöglicht die schnelle und präzise Berechnun
 " - Sara Stettler (stettsar@zhaw.students.ch) "
 " - Leah Cosslett (cossllea@zhaw.students.ch)"
 
-if st.button('RPI-Rechner'):
-    st.switch_page('pages/1_RPI-Rechner.py')
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    if st.button('Zum Rechner'):
+        st.switch_page('pages/1_RPI-Rechner.py')
+with col2:
+    if st.button('Zu den Daten'):
+        st.switch_page('pages/2_RPI-Daten.py')
+with col3:
+    if st.button('Zu der Grafik'):
+        st.switch_page('pages/3_RPI-Statistik.py')
+

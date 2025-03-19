@@ -13,6 +13,8 @@ data_df = st.session_state['data_df']
 if data_df.empty:
     st.info('Keine RPI Daten vorhanden. Berechnen Sie Ihren RPI auf der Rechner-Unterseite.')
     st.stop()
+    if st.button('Zum Rechner'):
+        st.switch_page('pages/1_RPI-Rechner.py')
 
 # Sort dataframe by timestamp
 data_df = data_df.sort_values('timestamp', ascending=False)
